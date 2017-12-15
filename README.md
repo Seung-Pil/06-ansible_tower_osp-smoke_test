@@ -1,0 +1,1 @@
+# 06-ansible_tower_osp-smoke_test
