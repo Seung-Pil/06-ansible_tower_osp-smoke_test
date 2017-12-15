@@ -1,0 +1,26 @@
+---
+##### - name: Print variable value for debug -1
+#####   debug: var=hostvars[host]['inventory_hostname']
+# tasks file for roles/smoketesters
+- name: Check - smoke test - frontend service
+  uri:
+    url: http://10.10.10.9
+#    url: "http://{{ item }}"
+    return_content: yes
+#  register: webpage
+#  with_items: 
+#    - 10.10.10.9
+#    - groups['frontends']
+
+- name: Fail if AWESOME is not in the page content
+  debug:
+    msg: checkfailed
+  fail:
+  when: "'AWESOME' not in webpage.content"
+
+##### - name: Print variable value for debug -1
+#####   debug: var=hostvars[host]['inventory_hostname']
+##### 
+##### - name: Print variable value for debug -2
+#####   debug: 
+#####       var: groups['apps']

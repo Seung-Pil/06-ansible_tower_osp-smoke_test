@@ -1,0 +1,7 @@
+---
+# handlers file for roles/frontends
+- name: restart HAproxy
+  service:
+    name: haproxy
+    state: restarted
+    enabled: yes
